@@ -40,24 +40,21 @@ headloss_cutout = pc.headloss_weir(flow_cutout,width_cutout).to(u.mm)
 
 headloss_cutout.to(u.m)
 
-DO_initial = 2*(u.mg/u.L) #lacking data, assuming zero
+DO_initial = 2*(u.mg/u.L) #lacking data, assuming something low
 DO_sat = 8*(u.mg/u.L) #approximate average sat. conc. based on temperature
 h = np.array([0.2,0.4,0.6,0.8,1.0,1.2,10])*u.m
 K = np.array([.14,.25,.36,.46,.51,.55,1])# K values from table in TU Delft paper
 interp_k = interpolate.interp1d(h,K,'slinear',fill_value='extrapolate')
 
 #Assume a reasonable total height, determine the number of steps into which that height should be divided given influent and target effluent DO concentration
-
 h_total = 1.6*u.m
 n_steps_array = np.array(np.arange(1,10,1))
 h_steps_array = h_total/n_steps_array
 
 #Interpolate to get K values
-
 K_array = interp_k(h_steps_array)
 
 #Get the final dissolved oxygen concentration for each step height
-
 def DO_final(DO_sat,DO_initial,K,n):
   DO = DO_sat-(DO_sat-DO_initial)*(1-K)**n
   return DO
@@ -73,7 +70,7 @@ plt.xlabel('Number of steps')
 plt.ylabel('Final DO Concentration')
 plt.show()
 ```
-[INSERT FINAL GRAPH HERE]
+![final_DO_graph](images/DO_graph_aerator_ocotal.JPG)
 ```python
 # %%
 
@@ -101,3 +98,9 @@ print('The number of steps is {}'.format(n_steps))
 print('The minimum width (B) of each step is {}'.format(width_trough.to(u.m)))
 print('The minimum depth (H) of each step is {}'.format(depth_trough.to(u.m)))
 ```
+The increase in dissolved oxygen concentration is 4.25 milligram / liter  
+The minimum horizontal length of the aerator is 2.5 meter  
+The height the water falls per step (h) is 0.8 meter  
+The number of steps is 2  
+The minimum width (B) of each step is 0.5788 meter  
+The minimum depth (H) of each step is 0.5333 meter  
