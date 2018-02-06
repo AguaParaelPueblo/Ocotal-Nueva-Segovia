@@ -101,9 +101,9 @@ print('The number of steps is {}'.format(n_steps))
 print('The minimum width (B) of each step is {}'.format(width_trough.to(u.m)))
 print('The minimum depth (H) of each step is {}'.format(depth_trough.to(u.m)))
 ```
-The increase in dissolved oxygen concentration is 4.436 milligram / liter
-The minimum horizontal length of the aerator is 2.5 meter
-The height the water falls per step (h) is 0.55 meter
-The number of steps is 2
-The minimum width (B) of each step is 0.4799 meter
-The minimum depth (H) of each step is 0.3667 meter
+The increase in dissolved oxygen concentration is 4.436 milligram / liter  
+The minimum horizontal length of the aerator is 2.5 meter  
+The height the water falls per step (h) is 0.55 meter  
+The number of steps is 2  
+The minimum width (B) of each step is 0.4799 meter  
+The minimum depth (H) of each step is 0.3667 meter  
