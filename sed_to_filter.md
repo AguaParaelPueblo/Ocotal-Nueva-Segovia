@@ -1,7 +1,7 @@
 #Head loss check between the sed tanks and filter for Ocotal
  The design produced for Ocotal incorrectly draws one of three sed-to-filter pipes such that it does not connect to the filter inlet channel:   
 
-![sed-to-fi-mistake](images/sed-to-fi-mistake.jpg)  
+![sed-to-fi-mistake](images/sed-to-fi-mistake.JPG)  
 
 The easiest thing is just to delete that pipe, but that could lead to too much head loss between the sed exit channel and filter inlet. The maximum allowable head loss is 16cm.
 ```python
